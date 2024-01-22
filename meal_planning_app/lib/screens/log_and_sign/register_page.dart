@@ -14,7 +14,7 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
 
-  //Register Method
+
   void register() {}
 
   @override
