@@ -3,19 +3,19 @@ import "package:flutter_svg/svg.dart";
 import "package:meal_planning_app/widgets/my_button.dart";
 import "package:meal_planning_app/widgets/my_textfield.dart";
 import "package:meal_planning_app/widgets/social_button.dart";
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+final supabase = Supabase.instance.client;
 
 class RegisterPage extends StatelessWidget {
-  final void Function()? onTap;
 
-  RegisterPage({super.key, required this.onTap});
+  RegisterPage({super.key});
 
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
 
-
-  void register() {}
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +84,11 @@ class RegisterPage extends StatelessWidget {
                   height: 20,
                 ),
                 //sign in button
-                MyButton(text: "Register", onTap: register),
+                MyButton(text: "Register",onTap: () async {
+                  await supabase
+                    .from('users')
+                    .insert({'username': usernameController.text,'password': passwordController.text, 'mail': emailController.text});
+                  }, ),
                 const SizedBox(
                   height: 25,
                 ),
@@ -98,7 +102,7 @@ class RegisterPage extends StatelessWidget {
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     GestureDetector(
-                      onTap: onTap,
+                      onTap: () {},
                       child: const Text(
                         " Login Here",
                         style: TextStyle(fontWeight: FontWeight.bold),
