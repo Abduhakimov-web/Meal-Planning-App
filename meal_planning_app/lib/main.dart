@@ -3,6 +3,8 @@ import 'package:meal_planning_app/screens/Home/home_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/login_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/register_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import "package:meal_planning_app/theme/dark_mode.dart";
+import "package:meal_planning_app/theme/light_mode.dart";
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,15 +27,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
-        home: HomePage(),
+        home: RegisterPage(),
         // home: HomePage(),
         // routes: {
         //   '/': (context) => HomePage(),
         //   '/plan': (context) => PlanPage(),
         //   '/list': (context) => ListPage(),
         // },
-        // theme: lightMode,
-        // darkTheme: darkMode,
+        theme: lightMode,
+        darkTheme: darkMode,
         );
   }
 }

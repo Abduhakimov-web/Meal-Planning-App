@@ -4,6 +4,8 @@ import "package:meal_planning_app/widgets/my_button.dart";
 import "package:meal_planning_app/widgets/my_textfield.dart";
 import "package:meal_planning_app/widgets/social_button.dart";
 import 'package:supabase_flutter/supabase_flutter.dart';
+import "package:meal_planning_app/theme/dark_mode.dart";
+import "package:meal_planning_app/theme/light_mode.dart";
 
 final supabase = Supabase.instance.client;
 
