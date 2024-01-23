@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.9
   supabase_flutter: ^2.3.0
+  another_carousel_pro: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,8 @@ flutter:
     - assets/svgs/apple.svg
     - assets/svgs/logo1.svg
     - assets/pngs/logo.png
+    - assets/jpgs/banner1.jpg
+    - assets/jpgs/banner2.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

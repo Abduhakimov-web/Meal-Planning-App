@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/svg.dart";
+import "package:meal_planning_app/widgets/carousel.dart";
+import "package:meal_planning_app/widgets/centered_view/centered_view.dart";
 import "package:meal_planning_app/widgets/my_button.dart";
 import "package:meal_planning_app/widgets/my_textfield.dart";
 import "package:meal_planning_app/widgets/social_button.dart";
@@ -12,10 +14,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Theme.of(context).colorScheme.background,
-      body: Column(
-        children: <Widget>[
-          NavigationBarTop()
-        ],
+      body: CenteredView(
+        child: Column(
+            children: <Widget>[
+              NavigationBarTop(),
+              ImageSlider()
+            ],
+        ),
       ),
     );
   }
