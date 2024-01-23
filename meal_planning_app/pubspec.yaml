@@ -65,7 +65,7 @@ flutter:
     - assets/svgs/google.svg
     - assets/svgs/apple.svg
     - assets/svgs/logo1.svg
-    - assets/recipes.json
+    - assets/pngs/logo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

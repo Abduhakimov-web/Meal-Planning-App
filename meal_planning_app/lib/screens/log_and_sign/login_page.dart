@@ -3,8 +3,6 @@ import "package:flutter_svg/svg.dart";
 import "package:meal_planning_app/widgets/my_button.dart";
 import "package:meal_planning_app/widgets/my_textfield.dart";
 import "package:meal_planning_app/widgets/social_button.dart";
-import "package:meal_planning_app/theme/dark_mode.dart";
-import "package:meal_planning_app/theme/light_mode.dart";
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
