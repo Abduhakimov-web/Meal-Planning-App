@@ -5,10 +5,10 @@ packages:
     dependency: "direct main"
     description:
       name: another_carousel_pro
-      sha256: "076c3d701ffe677daa855df5dfa01a97f525e0834db556f5d41403a2511df4c6"
+      sha256: "3973eac89f0df07c9032f597dc8f8e48ad3d73065c62cefd46231de04a71d433"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   app_links:
     dependency: transitive
     description:
@@ -118,6 +118,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      sha256: d2af03469eac832c591a1eba47c91ecc871fe5708e69967073c043b2d775ed93
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.1"
   flutter_svg:
     dependency: "direct main"
     description:

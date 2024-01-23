@@ -4,6 +4,7 @@ import "package:meal_planning_app/widgets/carousel.dart";
 import "package:meal_planning_app/widgets/centered_view/centered_view.dart";
 import "package:meal_planning_app/widgets/my_button.dart";
 import "package:meal_planning_app/widgets/my_textfield.dart";
+import "package:meal_planning_app/widgets/recipe_card.dart";
 import "package:meal_planning_app/widgets/social_button.dart";
 import "package:meal_planning_app/widgets/top_nav_bar.dart";
 
@@ -18,7 +19,10 @@ class HomePage extends StatelessWidget {
         child: Column(
             children: <Widget>[
               NavigationBarTop(),
-              ImageSlider()
+              SizedBox(height: 20,),
+              ImageSlider(),
+              SizedBox(height: 20,),
+              RecipeCard(),
             ],
         ),
       ),
