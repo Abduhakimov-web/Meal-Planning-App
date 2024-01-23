@@ -52,7 +52,7 @@ class RegisterPage extends StatelessWidget {
     var email = await supabase
       .from('users')
       .select()
-      .eq('mail', emailController.text)
+      .eq('email', emailController.text)
       .count(CountOption.exact);
     if(email.count == 0) {
       return true;
@@ -137,7 +137,7 @@ class RegisterPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Registered Successfully!')));
                           await supabase
                           .from('users')
-                          .insert({'username': usernameController.text,'password': passwordController.text, 'mail': emailController.text});
+                          .insert({'username': usernameController.text,'password': passwordController.text, 'email': emailController.text});
                         } else {
                           // errorMsgController.text = 'Passwords did not match';
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Passwords did not match')));

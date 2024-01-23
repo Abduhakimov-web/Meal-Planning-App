@@ -8,6 +8,7 @@ class NavigationBarTop extends StatelessWidget {
     return Container(
       height: 100,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           SizedBox(height: 80, width: 150, child: Image.asset('pngs/logo.png')),
           Row(
