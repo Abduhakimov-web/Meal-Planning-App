@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_planning_app/screens/Home/home_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/login_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/register_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
-        home: RegisterPage(),
+        home: HomePage(),
         // home: HomePage(),
         // routes: {
         //   '/': (context) => HomePage(),

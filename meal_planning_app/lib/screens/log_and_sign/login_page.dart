@@ -5,15 +5,15 @@ import "package:meal_planning_app/widgets/my_textfield.dart";
 import "package:meal_planning_app/widgets/social_button.dart";
 
 class LoginPage extends StatelessWidget {
-  final void Function()? onTap;
-
-  LoginPage({super.key, required this.onTap});
+  LoginPage({super.key});
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   //Login Method
-  void login() {}
+  void login() {
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +102,7 @@ class LoginPage extends StatelessWidget {
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     GestureDetector(
-                      onTap: onTap,
+                      onTap: (){},
                       child: const Text(
                         " Register Here",
                         style: TextStyle(fontWeight: FontWeight.bold),
