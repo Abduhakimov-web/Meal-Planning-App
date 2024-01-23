@@ -26,14 +26,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
-        home: HomePage(),
-        // home: HomePage(),
-        // routes: {
-        //   '/': (context) => HomePage(),
-        //   '/plan': (context) => PlanPage(),
-        //   '/list': (context) => ListPage(),
-        // },
+        home: RegisterPage(),
+        routes: {
+          '/home': (context) => HomePage(),
+          '/login': (context) => LoginPage(),
+          '/register': (context) => RegisterPage(),
+        },
         theme: lightMode,
         darkTheme: darkMode,
         );

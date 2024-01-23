@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/svg.dart";
+import "package:meal_planning_app/main.dart";
 import "package:meal_planning_app/widgets/my_button.dart";
 import "package:meal_planning_app/widgets/my_textfield.dart";
 import "package:meal_planning_app/widgets/social_button.dart";
+import "package:supabase_flutter/supabase_flutter.dart";
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -10,9 +12,40 @@ class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  //Login Method
-  void login() {
+  //Login Methods
+   bool isNotEmpty() {
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
+  Future<bool> correctEmail() async {
+    var email = await supabase
+      .from('users')
+      .select()
+      .eq('email', emailController.text)
+      .count(CountOption.exact);
+    if(email.count == 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> correctPassword() async {
+    var password = await supabase
+      .from('users')
+      .select()
+      .eq('email', emailController.text)
+      .eq('password', passwordController.text)
+      .count(CountOption.exact);
+    if(password.count == 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
@@ -88,7 +121,22 @@ class LoginPage extends StatelessWidget {
                   height: 10,
                 ),
                 //sign in button
-                MyButton(text: "Login", onTap: login),
+                MyButton(text: "Login", onTap: () async {
+                  if(isNotEmpty()) {
+                    if(await correctEmail()) {
+                      if(await correctPassword()) {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Signed In Successfully!')));
+                        Navigator.pushNamed(context, '/home');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Incorrect password')));
+                      }
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Incorrect email')));
+                    }
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please, fill all the fields')));
+                  }
+                }),
                 const SizedBox(
                   height: 25,
                 ),
@@ -102,7 +150,7 @@ class LoginPage extends StatelessWidget {
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: () {Navigator.pushNamed(context, '/register');},
                       child: const Text(
                         " Register Here",
                         style: TextStyle(fontWeight: FontWeight.bold),

@@ -17,7 +17,6 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
-  final TextEditingController errorMsgController = TextEditingController();
 
   bool passwordsMatch() {
     if(passwordController.text==confirmPwController.text) {
@@ -133,28 +132,24 @@ class RegisterPage extends StatelessWidget {
                     if(await usernameDoesNotExist()) {
                       if(await emailDoesNotExist()) {
                         if(passwordsMatch()) {
-                          // errorMsgController.text = 'Registered Successfully!';
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Registered Successfully!')));
                           await supabase
                           .from('users')
-                          .insert({'username': usernameController.text,'password': passwordController.text, 'email': emailController.text});
+                          .insert({'username': usernameController.text,'password': passwordController.text, 'mail': emailController.text});
+                          Navigator.pushNamed(context, '/login');
                         } else {
-                          // errorMsgController.text = 'Passwords did not match';
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Passwords did not match')));
                         }
                       } else {
-                        // errorMsgController.text = 'Account with this email already exists';
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Account with this email already exists')));
                       }
                     } else {
-                      // errorMsgController.text = 'This username is already taken';
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('This username is already taken')));
                     }
                   } else {
-                    // errorMsgController.text = 'Please, fill all the fields';
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please, fill all the fields')));
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please, fill all the fields')));
                   }
-                  }, ),
+                }, ),
                 const SizedBox(
                   height: 25,
                 ),
@@ -168,7 +163,7 @@ class RegisterPage extends StatelessWidget {
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {Navigator.pushNamed(context, '/login');},
                       child: const Text(
                         " Login Here",
                         style: TextStyle(fontWeight: FontWeight.bold),
