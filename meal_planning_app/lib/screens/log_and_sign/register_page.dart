@@ -17,7 +17,49 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
+  final TextEditingController errorMsgController = TextEditingController();
 
+  bool passwordsMatch() {
+    if(passwordController.text==confirmPwController.text) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  bool isNotEmpty() {
+    if(usernameController.text.isNotEmpty && emailController.text.isNotEmpty && passwordController.text.isNotEmpty && confirmPwController.text.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> usernameDoesNotExist() async {
+    var username = await supabase
+      .from('users')
+      .select()
+      .eq('username', usernameController.text)
+      .count(CountOption.exact);
+    if(username.count == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> emailDoesNotExist() async {
+    var email = await supabase
+      .from('users')
+      .select()
+      .eq('mail', emailController.text)
+      .count(CountOption.exact);
+    if(email.count == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,10 +128,32 @@ class RegisterPage extends StatelessWidget {
                   height: 20,
                 ),
                 //sign in button
-                MyButton(text: "Register",onTap: () async {
-                  await supabase
-                    .from('users')
-                    .insert({'username': usernameController.text,'password': passwordController.text, 'mail': emailController.text});
+                MyButton(text: "Register", onTap: () async {
+                  if(isNotEmpty()) {
+                    if(await usernameDoesNotExist()) {
+                      if(await emailDoesNotExist()) {
+                        if(passwordsMatch()) {
+                          // errorMsgController.text = 'Registered Successfully!';
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Registered Successfully!')));
+                          await supabase
+                          .from('users')
+                          .insert({'username': usernameController.text,'password': passwordController.text, 'mail': emailController.text});
+                        } else {
+                          // errorMsgController.text = 'Passwords did not match';
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Passwords did not match')));
+                        }
+                      } else {
+                        // errorMsgController.text = 'Account with this email already exists';
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Account with this email already exists')));
+                      }
+                    } else {
+                      // errorMsgController.text = 'This username is already taken';
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('This username is already taken')));
+                    }
+                  } else {
+                    // errorMsgController.text = 'Please, fill all the fields';
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please, fill all the fields')));
+                  }
                   }, ),
                 const SizedBox(
                   height: 25,
