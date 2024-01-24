@@ -24,24 +24,25 @@ class RecipeCard extends StatelessWidget {
             ),
             Text('Hot Burger', style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.black),),
             SizedBox(height: 4,),
-            Text('Lorem ipsum lorem ipsum', style: TextStyle(fontSize: 16,color: Colors.black)),
-            SizedBox(height: 6,),
-            RatingBar.builder(
-              initialRating: 4,
-              minRating: 1,
-              direction: Axis.horizontal,
-              itemCount: 5,
-              itemSize: 16,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4),
-              itemBuilder: (context,_) => Icon(
-                Icons.star, color: Colors.red,),
-              onRatingUpdate: (index){},
-            ),
-            SizedBox(height: 6,),
+            // Text('Lorem ipsum lorem ipsum', style: TextStyle(fontSize: 16,color: Colors.black)),
+            // SizedBox(height: 6,),
+            // RatingBar.builder(
+            //   initialRating: 4,
+            //   minRating: 1,
+            //   direction: Axis.horizontal,
+            //   itemCount: 5,
+            //   itemSize: 16,
+            //   itemPadding: EdgeInsets.symmetric(horizontal: 4),
+            //   itemBuilder: (context,_) => Icon(
+            //     Icons.star, color: Colors.red,),
+            //   onRatingUpdate: (index){},
+            // ),
+            // SizedBox(height: 6,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("10-15 mins", style: TextStyle(fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold),),
+                Row(children: [Icon(Icons.schedule, color: Colors.red, size: 20,),
+                Text(" 10-15 min", style: TextStyle(fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold)),]),
                 Icon(Icons.favorite_border, color: Colors.red, size: 20,)
               ],
             )

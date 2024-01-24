@@ -6,10 +6,10 @@ class ImageSlider extends StatefulWidget {
   const ImageSlider({super.key});
 
   @override
-  State<ImageSlider> createState() => _HomeState();
+  State<ImageSlider> createState() => _ImageSliderState();
 }
 
-class _HomeState extends State<ImageSlider> {
+class _ImageSliderState extends State<ImageSlider> {
   @override
   Widget build(BuildContext context) {
     return Container(
