@@ -10,6 +10,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import "../log_and_sign/register_page.dart";
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -37,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   //     pageNo++;
   //   });
   // }
-
+  
   @override
   void initState() {
     // pageController = PageController(initialPage: 0, viewportFraction: 0.85);

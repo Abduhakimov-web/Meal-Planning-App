@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:meal_planning_app/main.dart';
 import 'package:meal_planning_app/widgets/recipe_card.dart';
 
 class GridBuilder extends StatefulWidget {
-  const GridBuilder({Key? key}) : super(key: key);
+  const GridBuilder({Key? key,}) : super(key: key);
 
   @override
   State<GridBuilder> createState() => _GridBuilderState();
 }
 
 class _GridBuilderState extends State<GridBuilder> {
-  final List<Map<String, dynamic>> gridMap = [
+  List<Map<String, dynamic>> _recipes = [];
+
+  void get_recipes() async {
+  List<Map<String, dynamic>> recipes = await supabase
+  .from('recipes')
+  .select('title, cooking_time, photo');
+  setState(() {
+    _recipes = recipes;
+  }
+  );
+  }
+
+  void initState() {
+    get_recipes();
+  }
+  
+  final List<Map<String, dynamic>> recipeMap = [
     {
       "title": "white sneaker with adidas logo",
       "price": "\$255",
@@ -60,14 +77,14 @@ class _GridBuilderState extends State<GridBuilder> {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 7,
+        crossAxisCount: 4,
         crossAxisSpacing: 12.0,
         mainAxisSpacing: 12.0,
         mainAxisExtent: 310,
       ),
-      itemCount: 21,
+      itemCount: _recipes.length,
       itemBuilder: (_, index) {
-        return RecipeCard();
+        return RecipeCard(recipe_title: _recipes[index]['title'], cooking_time: _recipes[index]['cooking_time'], photo: _recipes[index]['photo'],);
         // Container(
         //   decoration: BoxDecoration(
         //     borderRadius: BorderRadius.circular(

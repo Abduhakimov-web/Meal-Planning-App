@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class RecipeCard extends StatelessWidget {
-  const RecipeCard({super.key});
+  final String recipe_title;
+  final int cooking_time;
+  final String photo;
+  const RecipeCard({super.key, required this.recipe_title, required this.cooking_time, required this.photo});
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +24,9 @@ class RecipeCard extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              child: Image.asset("pngs/burger.png", height: 150,),
+              child: Image.network(photo, height: 200, fit: BoxFit.fitWidth),
             ),
-            Text('Hot Burger', style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.black),),
+            Text(recipe_title, style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.black),),
             SizedBox(height: 4,),
             // Text('Lorem ipsum lorem ipsum', style: TextStyle(fontSize: 16,color: Colors.black)),
             // SizedBox(height: 6,),
@@ -42,7 +46,7 @@ class RecipeCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(children: [Icon(Icons.schedule, color: Colors.red, size: 20,),
-                Text(" 10-15 min", style: TextStyle(fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold)),]),
+                Text(" $cooking_time min", style: TextStyle(fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold)),]),
                 Icon(Icons.favorite_border, color: Colors.red, size: 20,)
               ],
             )

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
-class NavigationBarTop extends StatelessWidget {
+class NavigationBarTop extends StatefulWidget {
   const NavigationBarTop({super.key});
+  State<NavigationBarTop> createState() => _NavigationBarTopState();
+}
 
+class _NavigationBarTopState extends State<NavigationBarTop> {
+  final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,7 +14,22 @@ class NavigationBarTop extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          SizedBox(height: 80, width: 150, child: Image.asset('pngs/logo.png')),
+          SizedBox(height: 80, width: 250, child: Image.asset('pngs/logo.png')),
+          Row(children: [
+            SizedBox(
+              width: 300,
+              child: SearchBar(
+                  hintText: 'Search recipes here',
+                  controller: _searchController,
+                  hintStyle: MaterialStatePropertyAll(TextStyle(fontSize: 14, color: Colors.grey[500])),
+                  ),),
+                  IconButton(
+                    icon: Icon(Icons.tune_rounded),
+                    onPressed: () {
+                
+                  },
+                ),
+              ],),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -39,4 +58,5 @@ class _NavBarItems extends StatelessWidget {
     return Text(title, style: TextStyle(fontSize: 18),);
   }
 }
+
 

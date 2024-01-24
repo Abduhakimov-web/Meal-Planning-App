@@ -13,8 +13,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  ScrollController _scrollController = ScrollController();
-   TextEditingController _searchController = TextEditingController();
+    ScrollController _scrollController = ScrollController();
     String _selectedCategory = 'All';
     int _selectedCookingTime = 0;
     List<String> _selectedIngredients = [];
@@ -51,20 +50,6 @@ class _SearchPageState extends State<SearchPage> {
                 padding: const EdgeInsets.all(24.0),
                 child: NavigationBarTop(),
               ),
-              Row(children: [
-                SearchBar(
-                  hintText: 'Search recipes here',
-                  controller: _searchController,
-                  hintStyle: MaterialStatePropertyAll(TextStyle(fontSize: 14, color: Colors.grey[500])),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.tune_rounded),
-                    onPressed: () {
-                
-                  },
-                ),
-              ],),
-
               // const Padding(
               //   padding: EdgeInsets.all(24.0),
               //   child: GridBuilder(),
@@ -75,5 +60,4 @@ class _SearchPageState extends State<SearchPage> {
       ),
     );
   }
-
 }
