@@ -12,7 +12,7 @@ class MyDrawer extends StatelessWidget {
     children: [
       const DrawerHeader(
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: Colors.blueGrey,
         ),
         child: Text('Menu'),
       ),

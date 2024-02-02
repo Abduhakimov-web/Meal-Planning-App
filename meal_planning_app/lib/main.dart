@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_planning_app/screens/Home/home_page.dart';
+import 'package:meal_planning_app/screens/recipe_page.dart';
 import 'package:meal_planning_app/screens/search_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/login_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/register_page.dart';
@@ -28,13 +29,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: RegisterPage(),
         routes: {
           '/home': (context) => HomePage(),
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
           '/search':(context) => SearchPage(),
           '/mealplan':(context) => MealPlanPage(),
+          '/recipe':(context) => RecipePage(),
         },
         theme: lightMode,
         darkTheme: darkMode,

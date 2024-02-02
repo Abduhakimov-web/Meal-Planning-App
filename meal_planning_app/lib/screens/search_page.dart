@@ -44,7 +44,6 @@ class _SearchPageState extends State<SearchPage> {
     final TextEditingController _searchController = TextEditingController();
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           controller: _scrollController,
