@@ -1,6 +1,6 @@
 # Meal Planning App - Flutter
 
-![Meal Planning App](app_screenshot.png)
+![Meal Planning App](App_screenshot.png)
 
 ## Overview
 
@@ -12,10 +12,6 @@ Welcome to the Meal Planning App, a Flutter-based application designed to help y
 - **Recipe Management:** Easily add, edit, and delete recipes with images and descriptions.
 - **Shopping List:** Generate a shopping list based on your planned meals.
 - **User-friendly Interface:** Intuitive design for seamless navigation.
-
-## Screenshots
-
-Include screenshots or GIFs showcasing the app's interface and key features.
 
 ## Getting Started
 
