@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:meal_planning_app/widgets/grid_builder.dart';
+import 'package:meal_planning_app/widgets/my_app_bar.dart';
+import 'package:meal_planning_app/widgets/my_drawer.dart';
 import 'package:meal_planning_app/widgets/my_textfield.dart';
 import 'package:meal_planning_app/widgets/top_nav_bar.dart';
 
@@ -37,19 +39,35 @@ class _SearchPageState extends State<SearchPage> {
     super.dispose();
   }
 
-  
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _searchController = TextEditingController();
     return Scaffold(
+      appBar: MyAppBar(),
+      drawer: MyDrawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           controller: _scrollController,
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: NavigationBarTop(),
+              SizedBox(
+                height: 36.0,
               ),
+              Row(children: [
+            SizedBox(
+              width: 400,
+              child: SearchBar(
+                  hintText: 'Search recipes here',
+                  controller: _searchController,
+                  hintStyle: MaterialStatePropertyAll(TextStyle(fontSize: 14, color: Colors.grey[500])),
+                  ),),
+                  IconButton(
+                    icon: Icon(Icons.tune_rounded),
+                    onPressed: () {
+                
+                  },
+                ),
+              ],),
               // const Padding(
               //   padding: EdgeInsets.all(24.0),
               //   child: GridBuilder(),

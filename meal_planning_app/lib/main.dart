@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meal_planning_app/screens/Home/home_page.dart';
-import 'package:meal_planning_app/screens/Home/search_page.dart';
+import 'package:meal_planning_app/screens/search_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/login_page.dart';
 import 'package:meal_planning_app/screens/log_and_sign/register_page.dart';
+import 'package:meal_planning_app/screens/meal_plan_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import "package:meal_planning_app/theme/dark_mode.dart";
 import "package:meal_planning_app/theme/light_mode.dart";
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
           '/search':(context) => SearchPage(),
+          '/mealplan':(context) => MealPlanPage(),
         },
         theme: lightMode,
         darkTheme: darkMode,
