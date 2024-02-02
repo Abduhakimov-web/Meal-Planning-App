@@ -26,13 +26,13 @@ Follow these steps to set up and run the Meal Planning App on your local machine
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/meal-planning-app.git
+    git clone https://github.com/Abduhakimov-web/Meal-Planning-App.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd meal-planning-app
+    cd Meal-Planning-App
     ```
 
 3. Install dependencies:
@@ -51,23 +51,11 @@ Follow these steps to set up and run the Meal Planning App on your local machine
 
 1. Launch the app on your device or emulator.
 2. Explore the different features of the app, including meal planning, recipe management, and the shopping list.
-3. Customize your meal plans, add recipes, and enjoy the convenience of organized meal preparation.
-
-## Contributing
-
-If you'd like to contribute to the development of this project, please follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+3. Customize your meal plans, and enjoy the convenience of organized meal preparation.
 
 ## Acknowledgments
 
 - [Flutter](https://flutter.dev/)
 - [Dart](https://dart.dev/)
-
-## Contact
-
-For inquiries, please contact [Your Name] at [your.email@example.com].
 
 Happy Meal Planning!
